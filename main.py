@@ -20,6 +20,12 @@ def get_driver():
     return driver
 
 
+def clean_text(text):
+    # extract value before the percent symbol
+    percent = text.split("%")
+    percent = float(percent[0])
+    return percent
+
 
 
 def send_email():
@@ -40,7 +46,8 @@ def main():
     element = driver.find_element(
         by="xpath", value= '//*[@id = "maincontent"]/div[2]/div[3]/div/div[2]/bg-quote/span[2]')
     
-    print(element.text)
+    cleaned = clean_text(element.text)
+    print(cleaned)
 
 
 if __name__ == "__main__":
