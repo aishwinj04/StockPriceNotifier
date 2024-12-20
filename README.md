@@ -30,8 +30,6 @@ The Stock Price Notifier is a Python program that checks the price of Tesla's st
   - `datetime`
  
 ## Potential Delays
-Page Loading and Scraping: The program scrapes data from the MarketWatch website using Selenium, which involves opening the web page and waiting for elements to load. This can take some time depending on the website's speed and the complexity of the page. The program will wait for the necessary data to be fully loaded before extracting the stock price and percentage change. This process may take a few seconds to a minute.
+- Page Loading and Scraping: The program scrapes data from the MarketWatch website using Selenium, which involves opening the web page and waiting for elements to load. This can take some time depending on the website's speed and the complexity of the page. The program will wait for the necessary data to be fully loaded before extracting the stock price and percentage change. This process may take a few seconds to a minute.
 
-Email Sending: Sending emails using Yagmail may also take a few seconds depending on network conditions. Please be patient if the email does not arrive immediately.
-
-Program Delay: Since the program is designed to check the stock every hour, there will be a delay of up to 1 hour between each check, as it sleeps for 3600 seconds (time.sleep(3600)).
+- Email Sending: Sending emails using Yagmail may also take a few seconds depending on network conditions. Please be patient if the email does not arrive immediately.
