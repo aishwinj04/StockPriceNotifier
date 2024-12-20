@@ -34,36 +34,37 @@ def send_email(content):
 
     yag = yagmail.SMTP(user=my_email, password=my_password)
 
-    subject = "Stock Price Notification!!"
-
-    content = " "
+    subject = "Stock Price Notification For"
 
     yag.send(to=my_email, subject=subject, contents=content)
+    print("Email Sent!")
 
 
 def main():
     driver = get_driver()
     percent = driver.find_element(
         by="xpath", value= '//*[@id = "maincontent"]/div[2]/div[3]/div/div[2]/bg-quote/span[2]')
-    price = driver.find_element(by="xpath", value='//*[@id="maincontent"]/div[2]/div[3]/div/div[2]/h2/bg-quote')
-    print(price)
+    price = driver.find_element(by="xpath", value= '//*[@id="maincontent"]/div[2]/div[3]/div/div[2]/h2/bg-quote')
+    price = price.text
+    stock = driver.find_element(by="xpath", value= '//*[@id="maincontent"]/div[2]/div[2]/div/div[1]/div[2]/span[1]')
+    stock = stock.text
     value = clean_text(percent.text)
 
     
-    # if value < -10: 
-    #     content = f"""
-    #     We would like to inform you that Tesla's stock has experienced a significant decrease of 10% or more in value as of today. This represents a notable shift in the market, and we wanted to keep you updated on this development.
-    #     As always, we recommend reviewing your portfolio and considering any necessary adjustments in light of this change. If you have any questions or would like further details, feel free to reach out to us.
-    #     Thank you for your attention to this important update. We will continue to monitor the stock and provide you with timely notifications of any further changes.
+    if value < -1: 
+        content = f"""
+        
+         <p style = "font-size: 16px;"> Hello User! </p>
+        <p style = "font-size: 16px;"> We would like to inform you that Tesla's stock has experienced a significant decrease of 10 % or more in value as of today. This represents a notable shift in the market, and we wanted to keep you updated on this development. </p>
+        <p style = "font-size: 16px;"> As always, we recommend reviewing your portfolio and considering any necessary adjustments in light of this change. If you have any questions or would like further details, feel free to reach out to us. </p>
+        <p style = "font-size: 16px;"> Thank you for your attention to this important update. We will continue to monitor the stock and provide you with timely notifications of any further changes. </p>
 
-    #     The current price of the stock is: {}
-    #     Best regards,
-    #     StockNotifier Team
-    #     """
-    #     send_email(content)
+        <p style = "font-size: 18px; font-weight: bold;"> The current price of {stock} is {price}</p>
 
-    
-    
+        <p style = "font-size: 14px;"> Best regards, 
+        <p style = "font-size: 18px;"> StockNotifier Team </p>
+        """
+        send_email(content)
 
 
 if __name__ == "__main__":
