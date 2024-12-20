@@ -2,6 +2,7 @@ import yagmail
 import os
 
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 import time
 
 # initialize webdriver to access site
@@ -10,7 +11,7 @@ def get_driver():
     options.add_argument("disable-infobars")
     options.add_argument("start-maximized")
     options.add_argument("no-sandbox")
-    options.add_experimental_option('excludeSwtiches',['enable-automation'])
+    options.add_experimental_option('excludeSwitches',['enable-automation'])
     options.add_argument("disable-blink-features=AutomationControlled")
     driver = webdriver.Chrome(options=options)
 
@@ -37,9 +38,9 @@ def send_email():
 def main():
     driver = get_driver()
     element = driver.find_element(
-        by="xpath", value= "/html/body/div[3]/div[2]/div[3]/div/div[2]/bg-quote/span[2]")
+        by="xpath", value= '//*[@id = "maincontent"]/div[2]/div[3]/div/div[2]/bg-quote/span[2]')
     
-    print(element)
+    print(element.text)
 
 
 if __name__ == "__main__":
