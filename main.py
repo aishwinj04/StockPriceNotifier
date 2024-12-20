@@ -40,7 +40,7 @@ def send_email(content):
     print("Email Sent!")
 
 
-def main():
+def check_stock():
     driver = get_driver()
     percent = driver.find_element(
         by="xpath", value= '//*[@id = "maincontent"]/div[2]/div[3]/div/div[2]/bg-quote/span[2]')
@@ -66,7 +66,10 @@ def main():
         """
         send_email(content)
 
-
+def main():
+    while True:
+        check_stock()
+        time.sleep(2)
 if __name__ == "__main__":
     main()
 
