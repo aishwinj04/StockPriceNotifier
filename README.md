@@ -29,7 +29,7 @@ The Stock Price Notifier is a Python program that checks the price of Tesla's st
   - `time`
   - `datetime`
  
-  # Potential Delays
+## Potential Delays
 Page Loading and Scraping: The program scrapes data from the MarketWatch website using Selenium, which involves opening the web page and waiting for elements to load. This can take some time depending on the website's speed and the complexity of the page. The program will wait for the necessary data to be fully loaded before extracting the stock price and percentage change. This process may take a few seconds to a minute.
 
 Email Sending: Sending emails using Yagmail may also take a few seconds depending on network conditions. Please be patient if the email does not arrive immediately.
