@@ -12,5 +12,7 @@ def send_email(content):
 
     subject = "Stock Price Alert!"
 
-    yag.send(to=my_email, subject=subject, contents=content)
+    reciever_email = "a9@visuals@gmail.com" # enter reciever email here
+
+    yag.send(to=reciever_email, subject=subject, contents=content)
     print("Email Sent!")
