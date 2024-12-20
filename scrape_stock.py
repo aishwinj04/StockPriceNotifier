@@ -13,7 +13,7 @@ def get_driver():
     options.add_argument("disable-blink-features=AutomationControlled")
     driver = webdriver.Chrome(options=options)
 
-    driver.get("https://www.marketwatch.com/investing/stock/tsla")
+    driver.get("https://www.marketwatch.com/investing/stock/tsla") # designed to monitor TSLA stock
 
     return driver
 
@@ -36,15 +36,15 @@ def check_stock():
     value = clean_text(percent.text)
 
     
-    if value <= -5: 
+    if value <= -1: 
         content = f"""
-        
-         <p style = "font-size: 16px;"> Hello User! </p>
+        <p style = "font-size: 16px;"> Hello User! </p>
+        <p style = "font-size: 18px; font-weight: bold;"> The current price of {stock} is {price}</p>
         <p style = "font-size: 16px;"> We would like to inform you that Tesla's stock has experienced a significant decrease of 5% or more in value as of today. This represents a notable shift in the market, and we wanted to keep you updated on this development. </p>
         <p style = "font-size: 16px;"> As always, we recommend reviewing your portfolio and considering any necessary adjustments in light of this change. If you have any questions or would like further details, feel free to reach out to us. </p>
         <p style = "font-size: 16px;"> Thank you for your attention to this important update. We will continue to monitor the stock and provide you with timely notifications of any further changes. </p>
 
-        <p style = "font-size: 18px; font-weight: bold;"> The current price of {stock} is {price}</p>
+
 
         <p style = "font-size: 14px;"> Best regards, 
         <p style = "font-size: 18px;"> StockNotifier Team </p>
