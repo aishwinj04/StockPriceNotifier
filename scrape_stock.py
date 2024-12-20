@@ -26,6 +26,7 @@ def clean_text(text):
 
 
 def check_stock():
+    # extract price, stock value, and percent change 
     driver = get_driver()
     percent = driver.find_element(
         by="xpath", value= '//*[@id = "maincontent"]/div[2]/div[3]/div/div[2]/bg-quote/span[2]')
@@ -36,7 +37,7 @@ def check_stock():
     value = clean_text(percent.text)
 
     
-    if value <= -1: 
+    if value <= -5: 
         content = f"""
         <p style = "font-size: 16px;"> Hello User! </p>
         <p style = "font-size: 18px; font-weight: bold;"> The current price of {stock} is {price}</p>
